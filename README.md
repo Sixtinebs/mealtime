@@ -22,3 +22,7 @@ npm run lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+### If problem CORS In localhost
+add extension in chrome : Access-Control-Allow-origin.
+Toogle one 
