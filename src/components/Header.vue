@@ -15,13 +15,20 @@
 header {
   display: flex;
   justify-content: flex-end;
-  font-size: 25px;
+  font-size: 20px;
+  max-height: 100px;
+  margin: -8px -8px 0 -8px;
+  position: relative;
+    z-index: 2;
+    background-color: #ffffff80;
 }
 img {
   margin-right: auto;
+  object-fit: cover;
+
 }
 .links-menu {
-      display: flex;
+    display: flex;
     align-items: center;
 }
 .links-menu a {
