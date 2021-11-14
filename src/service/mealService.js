@@ -5,6 +5,6 @@ export default {
         return axios.get(`http://www.themealdb.com/api/json/v1/1/random.php`)
     },
     getMealId(id){
-        return axios.get(`www.themealdb.com/api/json/v1/1/lookup.php?i=52772`, {params: {i: id}})
+        return axios.get(`http://www.themealdb.com/api/json/v1/1/lookup.php?`, {params: {i: id}})
     }
 }
