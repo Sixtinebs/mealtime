@@ -24,7 +24,6 @@ export default {
       mealService
         .getRandomMeal()
         .then((response) => {
-          console.log(response.data.meals[0]);
           this.data = {'meal':response.data.meals[0]}
         }).catch( (error) => {
           console.error(error);
