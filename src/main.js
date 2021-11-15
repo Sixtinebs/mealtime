@@ -4,4 +4,6 @@ import router from './router'
 import axios from 'axios';
 
 createApp(App).use(router).mount('#app');
-axios.headers = {"Access-Control-Allow-Origin": "*"}
+axios.headers = {"Access-Control-Allow-Origin": "*"};
+
+
