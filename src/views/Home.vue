@@ -1,22 +1,28 @@
 <template>
-  <section class="about">
+  <div class="about">
     <div class="welcome">
       <img class="img-home" src="../assets/images/img-home.jpg" />
       <h1>What meal for tonight ?</h1>
     </div>
-    <div class="randoms-meals">
+    </div>
+    <section class="randoms-meals">
       <Random id="big-random" />
       <Random id="litle-random" />
       <Random id="litle-random-2" />
-    </div>
-  </section>
+    </section>
+    <section>
+       <h2>You not happy ?</h2>
+      <Categories />
+    </section>
 </template>
 
 <script>
 import Random from '../components/Random.vue';
+import Categories from '../components/Categories.vue';
 export default {
   components: {
     Random,
+    Categories
   }
 }
 

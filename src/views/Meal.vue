@@ -1,6 +1,10 @@
 <template>
 <section v-if="data" class="meal-recipe">
-  <h1>{{data.meal.strMeal}}</h1>
+<div class="sum">
+    <h1>{{data.meal.strMeal}}</h1>
+  <p>{{data.meal.strArea}} - {{data.meal.strCategory}} - {{data.meal.strTags}}</p>
+</div>
+<div class="line"></div>
   <div class="meal">
     <img :src="data.meal.strMealThumb"/>
     <div class="meal-ingredients">
@@ -8,17 +12,19 @@
       <ul>
         <li v-for="ingredient in ingredients" :key="ingredient">{{ingredient}}</li>
       </ul>
+
     </div>
     <div class="meal-instructions">
       <p>{{data.meal.strInstructions}}</p>
     </div>
   </div>
+  <div class="line"></div>
   <div>
+          <h2>Watch your recipe on video</h2>
     <iframe width="420" height="315" :src="changeUrlYoutube(data.meal.strYoutube)" frameborder="0" allowfullscreen></iframe>
   </div>
   <div>
-    <a :hr
-    ef="data.meal.strSource" >Blog from this recipe</a>
+    <a :href="data.meal.strSource" >Blog from this recipe</a>
   </div>
   </section>
 </template>
@@ -75,11 +81,16 @@ export default {
 </script>
 
 <style scoped>
-.meal-recipe {
-  margin: 20px;
+.sum p {
+  margin: 0;
+}
+.line {
+  margin: 50px auto;
+  border: 1px solid black;
+  width: 50%;
 }
 h1 {
-  margin: 20px 20px 50px 20px
+  margin: 20px;
 }
 .meal{ 
 display: flex;
@@ -89,6 +100,9 @@ display: flex;
 }
 .meal-recipe li {
   list-style: none;
+}
+.meal-recipe img {
+  max-height: 500px;
 }
 
 </style>

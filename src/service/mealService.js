@@ -6,5 +6,8 @@ export default {
     },
     getMealId(id){
         return axios.get(`http://www.themealdb.com/api/json/v1/1/lookup.php?`, {params: {i: id}})
+    },
+    getCategoriesMeal(){
+        return axios.get(`http://www.themealdb.com/api/json/v1/1/list.php?c=list`)
     }
 }
