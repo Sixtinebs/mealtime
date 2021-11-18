@@ -1,9 +1,8 @@
 <template>
-<div class="app">
-   <Header />
-   <router-view />
-</div>
-
+  <div class="app">
+    <Header />
+    <router-view />
+  </div>
 </template>
 <script>
 
@@ -19,6 +18,13 @@ export default {
 <style>
 body {
   margin: initial;
+  background-color: black;
+}
+section {
+  margin: 0 40px;
+  padding: 20px;
+  margin: 0 100px;
+  background-color: white;
 }
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
