@@ -1,27 +1,18 @@
 <template >
     <section>
-
         <h2>{{ selectCategorie }}</h2>
-        <div class=mealsCat>
-        <router-link
-            v-for="meal in meals"
-            :key="meal"
-            :to="{ name: 'meal', params: { id: meal.idMeal } }"
-        >
-            <div class="mealCat">
-                <p>{{ meal.strMeal }}</p>
-                <img :src="meal.strMealThumb" />
-            </div>
-        </router-link>
-        </div>
-
+    <List :meal-list="meals" />
     </section>
 </template>
 <script>
 import mealService from "../service/mealService.js";
+import List from "../components/List.vue";
 export default {
     props: {
         selectCategorie: String
+    },
+    components: {
+        List,
     },
     data() {
         return {
