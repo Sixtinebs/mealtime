@@ -3,53 +3,47 @@
     <div class="area" v-for="area in areas"  :key="area">
     <p @click="seeAreaMeal(area.strArea)">{{area.strArea}}</p>
 </div>
-<router-link
-            v-for="meal in areaSelect"
-            :key="meal"
-            :to="{ name: 'meal', params: { id: meal.idMeal } }"
-        >
-            <div class="mealArea">
-                <p>{{ meal.strMeal }}</p>
-                <img :src="meal.strMealThumb" />
-            </div>
-        </router-link>
+        <List :meal-list="areaSelect"/>
 </div>
 </template>
 <script>
  import mealService from "../service/mealService";
+ import List from '../components/List.vue';
  export default {
-     data(){
-         return {
-             areas: null,
-             areaSelect: null
-         }
+     components: {
+         List,
      },
-     methods: {
-         getAllArea(){
-             mealService
-             .getAllArea()
-             .then(res => {
-                 this.areas = res.data.meals;
-             }).catch(erro => console.log(erro))  
-         },
-         getOneArea(area){
-             mealService
-             .getOneArea(area)
-             .then(res => {
-                 console.log(res),
-                 this.areaSelect = res.data.meals;
-                 console.log(this.areaSelect)
-             })
-
-         },
-         seeAreaMeal(area){
-             this.getOneArea(area);
-         }
-     },
-     mounted(){
-         this.getAllArea()
-     }
- }
+    data() {
+        return {
+            areas: null,
+            areaSelect: null
+        };
+    },
+    methods: {
+        getAllArea() {
+            mealService
+                .getAllArea()
+                .then(res => {
+                this.areas = res.data.meals;
+            }).catch(erro => console.log(erro));
+        },
+        getOneArea(area) {
+            mealService
+                .getOneArea(area)
+                .then(res => {
+                console.log(res),
+                    this.areaSelect = res.data.meals;
+                console.log(this.areaSelect);
+            });
+        },
+        seeAreaMeal(area) {
+            this.getOneArea(area);
+        }
+    },
+    mounted() {
+        this.getAllArea();
+    },
+}
 
 
 </script>
