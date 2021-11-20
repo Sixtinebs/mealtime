@@ -1,10 +1,19 @@
 <template >
     <section>
 
-        <p >{{meals}}</p>
         <h2>{{ selectCategorie }}</h2>
-
-      
+        <div class=mealsCat>
+        <router-link
+            v-for="meal in meals"
+            :key="meal"
+            :to="{ name: 'meal', params: { id: meal.idMeal } }"
+        >
+            <div class="mealCat">
+                <p>{{ meal.strMeal }}</p>
+                <img :src="meal.strMealThumb" />
+            </div>
+        </router-link>
+        </div>
 
     </section>
 </template>
@@ -16,7 +25,7 @@ export default {
     },
     data() {
         return {
-           meals: null,
+            meals: null,
         }
     },
     methods: {
@@ -25,16 +34,16 @@ export default {
                 .getOneCategorie(cat)
                 .then((res) => {
                     console.log(res),
-                    this.meals = res.data.meals
+                        this.meals = res.data.meals
                 })
                 .catch(error => console.log(error))
         }
     },
-    created(){
+    created() {
         this.getOneCategorieMeal(this.selectCategorie)
     },
     watch: {
-        selectCategorie: function(){
+        selectCategorie: function () {
             this.getOneCategorieMeal(this.selectCategorie);
         }
     }
@@ -42,4 +51,22 @@ export default {
 
 }
 </script>
-<style></style>
+<style scoped>
+.mealsCat {
+        display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.mealCat {
+    width: 200px;
+    margin-bottom: 30px;
+}
+.mealCat p {
+    height: 66px;
+    margin: auto;
+}
+.mealCat img {
+    width: 100%;
+}
+
+</style>
