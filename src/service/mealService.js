@@ -12,5 +12,11 @@ export default {
     },
     getOneCategorie(categorie){
         return axios.get(`http://www.themealdb.com/api/json/v1/1/filter.php?`, {params: {c: categorie}} )
+    },
+    getAllArea(){
+        return axios.get(`http://www.themealdb.com/api/json/v1/1/list.php?a=list`)
+    },
+    getOneArea(area){
+        return axios.get(`http://www.themealdb.com/api/json/v1/1/filter.php?`, {params : {a: area }})
     }
 }
