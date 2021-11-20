@@ -3,21 +3,25 @@
     <h1>Choose your categorie for to night : </h1>
     <label for="categorie-select">Choose a categorie:</label>
 
-<select name="categories" id="categorie-select">
+<select v-model="selectCategorie" name="categories" id="categorie-select">
     <option value="">--Please choose an option--</option>
     <option v-for="i in data" :key="i" :value="i.strCategory">{{i.strCategory}}</option>
 </select>
-<input type="button" value="OK" />
 </section>
-
+<Categorie v-if="selectCategorie"  :select-categorie="selectCategorie"/>
 </template>
 <script>
 import mealService from "../service/mealService.js";
+import Categorie from '../views/Categorie.vue';
 
 export default {
+  components: {
+    Categorie
+  },
   data() {
     return {
       data: null,
+      selectCategorie: null,
     }
   },
   methods: {
@@ -30,8 +34,7 @@ export default {
         }).catch( (error) => {
           console.error(error);
         });
-    },
-    //Function go page liste meal categorie
+    }
   },
   created() {
     this.getCategoriesMeal();

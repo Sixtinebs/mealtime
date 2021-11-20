@@ -9,5 +9,8 @@ export default {
     },
     getCategoriesMeal(){
         return axios.get(`http://www.themealdb.com/api/json/v1/1/list.php?c=list`)
+    },
+    getOneCategorie(categorie){
+        return axios.get(`http://www.themealdb.com/api/json/v1/1/filter.php?`, {params: {c: categorie}} )
     }
 }
