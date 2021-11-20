@@ -1,9 +1,12 @@
 <template >
-<section >
-    <p>coucou</p>
-    <h2>{{selectCategorie}}</h2>
-    <!-- <div>{{ getOneCategorieMeal()}}</div> -->
-</section>
+    <section>
+
+        <p >{{meals}}</p>
+        <h2>{{ selectCategorie }}</h2>
+
+      
+
+    </section>
 </template>
 <script>
 import mealService from "../service/mealService.js";
@@ -11,22 +14,32 @@ export default {
     props: {
         selectCategorie: String
     },
-    Data(){
-
-    },
-    methods: {
-        getOneCategorieMeal(){
-            mealService
-                .getOneCategorie(this.selectCategorie)
-                .then((res) => console.log(res))
+    data() {
+        return {
+           meals: null,
         }
     },
-    created() {
-        this.getOneCategorieMeal()
+    methods: {
+        getOneCategorieMeal(cat) {
+            mealService
+                .getOneCategorie(cat)
+                .then((res) => {
+                    console.log(res),
+                    this.meals = res.data.meals
+                })
+                .catch(error => console.log(error))
+        }
     },
-    unmounted() {
-        this.getOneCategorieMeal()
+    created(){
+        this.getOneCategorieMeal(this.selectCategorie)
+    },
+    watch: {
+        selectCategorie: function(){
+            this.getOneCategorieMeal(this.selectCategorie);
+        }
     }
+
+
 }
 </script>
 <style></style>
