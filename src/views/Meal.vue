@@ -1,5 +1,5 @@
 <template>
-<section v-if="data" class="meal-recipe">
+<section v-if="data" class="container">
 <div class="sum">
     <h1>{{data.meal.strMeal}}</h1>
   <p>{{data.meal.strArea}} - {{data.meal.strCategory}} - {{data.meal.strTags}}</p>
@@ -15,6 +15,7 @@
 
     </div>
     <div class="meal-instructions">
+      <h2>They instructions : </h2>
       <p>{{data.meal.strInstructions}}</p>
     </div>
   </div>
@@ -46,8 +47,6 @@ export default {
           console.log(response);
           this.data =  {'meal': response.data.meals[0]};
           this.findAllingredient(response.data.meals[0]);
-          //this.changeUrlYoutube(response.data.meals[0].strYoutube);
-          //console.log(this.ingredients);
         })
         .catch((error) => {
           console.log(error)
@@ -94,15 +93,31 @@ h1 {
 }
 .meal{ 
 display: flex;
+flex-wrap: wrap;
+justify-content: center;
 }
 .meal-ingredients {
-  width: 100%;
+  flex: 0 50%;
+  max-width: 100%;
+}
+@media screen and (max-width: 1039px){
+  .meal-ingredients{
+    flex: 0 100%;
+  }
+}
+.meal-recipe ul {
+  display: flex;
+  flex-wrap: wrap;
 }
 .meal-recipe li {
   list-style: none;
+  padding: 10px;
 }
 .meal-recipe img {
   max-height: 500px;
+  flex: 0 50%;
+  max-width: 100%;
+  object-fit: cover;
 }
 
 </style>

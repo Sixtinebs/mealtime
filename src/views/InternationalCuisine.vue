@@ -1,5 +1,5 @@
 <template>
-  <section>
+  <section class="container">
     <h1>International Cooking !</h1>
     <Area />
   </section>
@@ -15,5 +15,8 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
+h1 {
+  margin-bottom: 20px;
+}
 </style>
