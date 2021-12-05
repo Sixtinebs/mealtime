@@ -14,20 +14,32 @@ export default {
 }
 </script>
 
-
 <style>
+@font-face {
+  font-family: "Mukta";
+  src: local("Mukta"),
+   url(../src/assets/fonts/Mukta/Mukta-Regular.ttf) format("truetype");
+}
+@font-face {
+  font-family: "NothingYouCouldDo";
+  src: local("NothingYouCouldDor"),
+   url(../src/assets/fonts/Nothing_You_Could_Do/NothingYouCouldDo-Regular.ttf) format("truetype");
+}
+
 body {
   margin: initial;
   background-color: black;
 }
-section {
-  margin: 0 40px;
+.container {
   padding: 20px;
   margin: 0 100px;
   background-color: white;
+    border-radius: 15px;
+     margin-bottom: 20px; 
 }
+
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: Mukta, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;

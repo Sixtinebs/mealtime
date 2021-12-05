@@ -1,7 +1,6 @@
 <template>
 <section class="categories-meal-db" >
     <label for="categorie-select">Choose your categorie for to night :</label>
-
 <select v-model="selectCategorie" name="categories" id="categorie-select">
     <option value="">--Please choose an option--</option>
     <option v-for="i in data" :key="i" :value="i.strCategory">{{i.strCategory}}</option>
@@ -16,7 +15,8 @@ import Categorie from '../views/Categorie.vue';
 
 export default {
   components: {
-    Categorie
+    Categorie,
+
   },
   data() {
     return {
@@ -44,6 +44,7 @@ export default {
   },
   created() {
     this.getCategoriesMeal();
+    
   }
 }
 

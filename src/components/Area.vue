@@ -1,6 +1,7 @@
 <template>
-<div class="areas">
-    <div class="area" v-for="area in areas"  :key="area">
+<div class="areas" >
+    <div class="area" v-for="(area, index) in areas"  :key="area" :class="{isActive:index == selected}" @click="selected = index">
+
     <p @click="seeAreaMeal(area.strArea)">{{area.strArea}}</p>
 </div>
         <List :meal-list="areaSelect"/>
@@ -16,7 +17,8 @@
     data() {
         return {
             areas: null,
-            areaSelect: null
+            areaSelect: null,
+            selected: undefined
         };
     },
     methods: {
@@ -38,6 +40,9 @@
         },
         seeAreaMeal(area) {
             this.getOneArea(area);
+        },
+        testClass(index){
+            this.isActive = `index-${index}`;
         }
     },
     mounted() {
@@ -57,4 +62,9 @@
     margin: 5px 10px;
     cursor: pointer;
 }
+
+.isActive {
+    color: red;
+}
+
 </style>
