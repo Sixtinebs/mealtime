@@ -5,25 +5,25 @@
   </div>
 </template>
 <script>
-
-import Header from './components/Header';
+import Header from "./components/Header";
 export default {
   components: {
     Header,
-  }
-}
+  },
+};
 </script>
 
 <style>
 @font-face {
   font-family: "Mukta";
   src: local("Mukta"),
-   url(../src/assets/fonts/Mukta/Mukta-Regular.ttf) format("truetype");
+    url(../src/assets/fonts/Mukta/Mukta-Regular.ttf) format("truetype");
 }
 @font-face {
   font-family: "NothingYouCouldDo";
   src: local("NothingYouCouldDor"),
-   url(../src/assets/fonts/Nothing_You_Could_Do/NothingYouCouldDo-Regular.ttf) format("truetype");
+    url(../src/assets/fonts/Nothing_You_Could_Do/NothingYouCouldDo-Regular.ttf)
+      format("truetype");
 }
 
 body {
@@ -34,8 +34,13 @@ body {
   padding: 20px;
   margin: 0 100px;
   background-color: white;
-    border-radius: 15px;
-     margin-bottom: 20px; 
+  border-radius: 15px;
+  margin-bottom: 20px;
+}
+@media screen and (max-width: 768px) {
+  .container {
+    margin: 0 40px;
+  }
 }
 
 #app {

@@ -3,7 +3,6 @@
     <h1>International Cooking !</h1>
     <Area />
   </section>
-
 </template>
 
 <script>
